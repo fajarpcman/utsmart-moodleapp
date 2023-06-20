@@ -1,6 +1,6 @@
 {
-    "app_id": "com.moodle.moodlemobile",
-    "appname": "Moodle Mobile",
+    "app_id": "com.unitedtractors.utsmart",
+    "appname": "UTSMART",
     "versioncode": 43000,
     "versionname": "4.3.0",
     "cache_update_frequency_usually": 420000,
@@ -100,7 +100,7 @@
     "forceLoginLogo": false,
     "ioswebviewscheme": "moodleappfs",
     "appstores": {
-        "android": "com.moodle.moodlemobile",
+        "android": "com.unitedtractors.utsmart",
         "ios": "id633359593"
     },
     "wsrequestqueuelimit": 10,

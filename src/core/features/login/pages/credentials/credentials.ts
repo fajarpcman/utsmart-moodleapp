@@ -33,6 +33,7 @@ import { CoreUserSupportConfig } from '@features/user/classes/support/support-co
 import { CoreUserGuestSupportConfig } from '@features/user/classes/support/guest-support-config';
 import { SafeHtml } from '@angular/platform-browser';
 import { CorePlatform } from '@services/platform';
+import { URL_ENDPOINT } from '@/core/utils/url-instance';
 
 /**
  * Page to enter the user credentials.
@@ -78,7 +79,7 @@ export class CoreLoginCredentialsPage implements OnInit, OnDestroy {
      */
     async ngOnInit(): Promise<void> {
         try {
-            this.siteUrl = CoreNavigator.getRequiredRouteParam<string>('siteUrl');
+            this.siteUrl = URL_ENDPOINT;
             this.siteName = CoreNavigator.getRouteParam('siteName');
             this.logoUrl = !CoreConstants.CONFIG.forceLoginLogo && CoreNavigator.getRouteParam('logoUrl') || undefined;
             this.siteConfig = CoreNavigator.getRouteParam<CoreSitePublicConfigResponse>('siteConfig');

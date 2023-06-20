@@ -5,7 +5,7 @@
  * http://ionicframework.com/docs/theming/
  */
 
-html {
+ html {
 
     // Color palette
     --black: #{$black};
@@ -21,52 +21,58 @@ html {
     --white: #{$white};
 
     // Ionic shades, defined for ionic internal use.
-    --ion-color-step-0:    var(--white);
-    --ion-color-step-50:   var(--gray-100);
-    --ion-color-step-100:  var(--gray-100);
-    --ion-color-step-150:  var(--gray-200);
-    --ion-color-step-200:  var(--gray-200);
-    --ion-color-step-250:  var(--gray-300);
-    --ion-color-step-300:  var(--gray-300);
-    --ion-color-step-350:  var(--gray-400);
-    --ion-color-step-400:  var(--gray-400);
-    --ion-color-step-450:  var(--gray-500);
+    --ion-color-step-0:    var(--black);
+    --ion-color-step-50:   var(--gray-900);
+    --ion-color-step-100:  var(--gray-900);
+    --ion-color-step-150:  var(--gray-900);
+    --ion-color-step-200:  var(--gray-800);
+    --ion-color-step-250:  var(--gray-800);
+    --ion-color-step-300:  var(--gray-700);
+    --ion-color-step-350:  var(--gray-700);
+    --ion-color-step-400:  var(--gray-600);
+    --ion-color-step-450:  var(--gray-600);
     --ion-color-step-500:  var(--gray-500);
-    --ion-color-step-550:  var(--gray-600);
-    --ion-color-step-600:  var(--gray-600);
-    --ion-color-step-650:  var(--gray-700);
-    --ion-color-step-700:  var(--gray-700);
-    --ion-color-step-750:  var(--gray-800);
-    --ion-color-step-800:  var(--gray-800);
-    --ion-color-step-850:  var(--gray-900);
-    --ion-color-step-900:  var(--gray-900);
-    --ion-color-step-950:  var(--gray-900);
-    --ion-color-step-1000: var(--black);
+    --ion-color-step-550:  var(--gray-500);
+    --ion-color-step-600:  var(--gray-400);
+    --ion-color-step-650:  var(--gray-400);
+    --ion-color-step-700:  var(--gray-300);
+    --ion-color-step-750:  var(--gray-300);
+    --ion-color-step-800:  var(--gray-200);
+    --ion-color-step-850:  var(--gray-200);
+    --ion-color-step-900:  var(--gray-100);
+    --ion-color-step-950:  var(--gray-100);
+    --ion-color-step-1000: var(--white);
 
     @each $color-name, $unused in $colors {
-        @include generate-color($color-name, $colors, 'light');
+        @include generate-color($color-name, $colors, 'dark');
     }
 
     // Accessibility vars.
+    --a11y-min-target-size: 44px;
     --a11y-focus-color: var(--primary);
     --a11y-focus-width: 2px;
     --zoom-level: 100%;
 
-    --text-color:       #{$text-color};
-    --text-size: var(--font-size-normal);
-    --background-color: #{$background-color};
-    --stroke:            var(--gray-300);
+    --text-color:       #{$text-color-dark};
+    --ion-text-color:   var(--text-color);
+    --ion-text-color-rgb:       #{$text-color-dark-rgb};
+    --text-size:        14px;
+    --background-color: #{$background-color-dark};
+    --subdued-text-color:       var(--medium);
+    --stroke:            var(--gray-700);
+
+    --contrast-background: var(--gray-800);
 
     --core-online-color: #5cb85c;
 
-    --ion-background-color: var(--background-color);
+    --ion-background-color: #{$background-color-dark};
     --ion-item-border-color: var(--stroke);
-    --ion-background-color-rgb: #{$background-color-rgb};
+    --ion-background-color-rgb: #{$background-color-dark-rgb};
     --ion-border-color: var(--stroke);
 
-    --core-input-stroke: var(--gray-500);
+    --core-input-stroke: var(--gray-600);
     --core-input-text: var(--dark);
-    --core-input-background: var(--ion-background-color);
+    --core-input-background: var(--gray-800);
     --core-input-radius: var(--small-radius);
     --core-input-border-width: 1px;
 
@@ -78,10 +84,8 @@ html {
     --modal-lateral-max-width: 320px;
     --modal-lateral-margin: 56px;
 
-    --contrast-background: white;
-
     --loader-background-color: rgba(0, 0, 0, .1);
-    --loader-shine: 251, 251, 251;
+    --loader-shine: 90, 90, 90;
     --loader-radius: var(--small-radius);
     --loader-display: block;
 
@@ -99,6 +103,8 @@ html {
     --ion-card-radius: var(--medium-radius);
     --ion-card-border-width: 1px;
     --ion-card-border-color: var(--stroke);
+    --ion-card-background: var(--ion-item-background);
+
     ion-card {
         --border-width: var(--ion-card-border-width);
         --border-style: solid;
@@ -113,11 +119,11 @@ html {
 
     ion-content {
         --background: var(--ion-background-color);
-        --background-alternative: var(--gray-200);
+        --background-alternative: var(--gray-800);
     }
 
-    --core-bottom-tabs-background: var(--white);
-    --core-bottom-tabs-color: var(--dark);
+    --core-bottom-tabs-background: var(--gray-800);
+    --core-bottom-tabs-color: var(--gray-200);
     --core-bottom-tabs-color-selected: var(--primary);
     --core-bottom-tabs-background-selected: transparent;
     --core-bottom-tabs-badge-color: var(--primary);
@@ -131,13 +137,13 @@ html {
         --background-selected: var(--core-bottom-tabs-background-selected);
     }
 
-    --core-link-color: var(--info);
+    --core-link-color: var(--info-tint);
     a {
         color: var(--core-link-color);
     }
 
     --core-header-toolbar-button-image-size: var(--a11y-min-target-size);
-    --core-header-toolbar-background: var(--white);
+    --core-header-toolbar-background: var(--gray-800);
     --core-header-toolbar-border-width: 0px;
     --core-header-toolbar-border-color: var(--stroke);
     --core-header-toolbar-color: var(--text-color);
@@ -187,8 +193,7 @@ html {
     --ion-searchbar-height: var(--a11y-min-target-size);
     --ion-searchbar-color: var(--text-color);
     --ion-searchbar-icon-color: var(--core-input-stroke);
-    ion-searchbar,
-    .ios ion-searchbar {
+    ion-searchbar {
         --background: var(--ion-searchbar-background);
         --border-color: var(--ion-searchbar-border-color);
         --color: var(--ion-searchbar-color);
@@ -202,8 +207,8 @@ html {
     --core-search-box-border-radius: var(--core-input-radius);
     --core-search-box-color: var(--core-input-text);
 
-    --core-combobox-background: var(--core-input-background);
-    --core-combobox-color: var(--core-input-text);
+    --core-combobox-background: var(--gray-800);
+    --core-combobox-color: var(--text-color);
     --core-combobox-border-color: var(--core-input-stroke);
     --core-combobox-border-width: var(--core-input-border-width);
     --core-combobox-radius: var(--core-input-radius);
@@ -224,12 +229,8 @@ html {
         }
 
         .action-sheet-cancel {
-            --button-color: var(--danger);
+            --button-color: var(--danger-tint);
         }
-    }
-
-    ion-popover.ios {
-        --min-width: 250px;
     }
 
     ion-toast {
@@ -238,10 +239,10 @@ html {
         --background: var(--ion-color-step-800);
     }
 
-    --core-tabs-background: var(--white);
+    --core-tabs-background: var(--gray-800);
     --core-tab-background: var(--core-tabs-background);
     --core-tab-color: var(--subdued-text-color);
-    --core-tab-border-color: var(--stroke);
+    --core-tab-border-color: var(--gray-200);
     --core-tab-color-active: var(--dark);
     --core-tab-border-color-active: var(--primary);
     --core-tab-font-weight-active: normal;
@@ -258,6 +259,7 @@ html {
         }
     }
 
+
     --core-loading-spinner: var(--primary);
     ion-loading {
         --spinner-color: var(--core-loading-spinner);
@@ -273,12 +275,13 @@ html {
     --core-progressbar-text-color: var(--medium);
     --core-progressbar-background: var(--primary-tint);
 
-    --ion-item-background:        #{$ion-item-background};
+    --ion-item-background: var(--gray-800);
     --ion-item-icon-color: var(--medium);
     --ion-item-detail-icon-color: var(--dark);
     --ion-item-detail-icon-font-size: 20px;
     --ion-item-detail-icon-opacity: 1;
     --core-more-icon: var(--ion-item-icon-color);
+
     ion-item {
         --detail-icon-color: var(--ion-item-detail-icon-color);
         --detail-icon-font-size: var(--ion-item-detail-icon-font-size);
@@ -295,6 +298,7 @@ html {
     --item-divider-border-width: 0px;
     --item-divider-font-size: 16px;
     --item-divider-font-size-big: 20px;
+    --spacer-background: var(--gray-700);
     ion-item-divider, ion-item.divider {
         --background: var(--item-divider-background);
         --color: var(--item-divider-color);
@@ -319,18 +323,18 @@ html {
     --collapsible-toggle-background: transparent;
     --collapsible-toggle-text: var(--medium);
 
-    --background-gradient-rgb: #{$ion-item-background-rgb};
+    --background-gradient-rgb: #{$ion-item-background-dark-rgb};
 
-    --core-login-background: var(--white);
-    --core-login-text-color: var(--gray-900);
-    --core-login-input-background: var(--white);
-    --core-login-input-color: var(--gray-900);
+    --core-login-background: var(--gray-800);
+    --core-login-text-color: var(--white);
+    --core-login-input-background: var(--core-login-background);
+    --core-login-input-color: var(--core-login-text-color);
 
     --core-star-color: var(--primary);
 
     --core-large-avatar-size: 90px;
     --core-avatar-size: var(--a11y-min-target-size);
-    --core-avatar-radius: 50%;
+    --core-avatar-radius:50%;
 
     --core-courseimage-on-course-size: 72px;
     --core-courseimage-radius: var(--medium-radius);
@@ -339,45 +343,48 @@ html {
 
     --core-collapsible-footer-background: var(--contrast-background);
 
-    --core-user-menu-site-logo-max-height: 32px;
+    --core-user-menu-site-logo-max-height: 64px;
 
     --addon-calendar-today-border-color: var(--primary);
     --addon-calendar-border-color: var(--stroke);
 
-    --core-messages-message-bg: var(--white);
-    --core-messages-message-activated-bg: var(--gray-200);
-    --core-messages-message-note-text: var(--gray-500);
-    --core-messages-message-note-font-size: 75%;
-    --core-messages-message-mine-bg: var(--gray-300);
-    --core-messages-message-mine-activated-bg: var(--gray-400);
-    --core-messages-avatar-size: 30px;
-    --core-messages-discussion-badge: var(--primary);
-    --core-messages-discussion-badge-text: var(--white);
+    --addon-messages-message-bg: var(--gray-800);
+    --addon-messages-message-activated-bg: var(--gray-700);
+    --addon-messages-message-note-text: var(--subdued-text-color);
+    --addon-messages-message-note-font-size: 75%;
+    --addon-messages-message-mine-bg: var(--gray-700);
+    --addon-messages-message-mine-activated-bg: var(--gray-600);
+    --addon-messages-avatar-size: 30px;
+    --addon-messages-discussion-badge: var(--primary);
+    --addon-messages-discussion-badge-text: var(--gray-100);
 
     --addon-forum-avatar-size: var(--core-avatar-size);
-    --addon-forum-border-color: var(--stroke);
-    --addon-forum-highlight-color: var(--light);
+    --addon-forum-border-color: var(--gray-500);
+    --addon-forum-highlight-color: ar(--gray-200);
 
-    --core-question-correct-color: var(--success-shade);
-    --core-question-correct-color-bg: var(--success-tint);
+    --core-question-correct-color: var(--success-tint);
+    --core-question-correct-color-bg: var(--success-shade);
     --core-question-incorrect-color: var(--danger);
-    --core-question-incorrect-color-bg: var(--danger-tint);
-    --core-question-feedback-color: var(--warning-shade);
-    --core-question-feedback-color-bg: var(--warning-tint);
+    --core-question-incorrect-color-bg: var(--danger-shade);
+    --core-question-feedback-color: var(--warning-tint);
+    --core-question-feedback-color-bg: var(--gray-800);
     --core-question-warning-color: var(--danger);
-    --core-question-saved-color-bg: var(--gray-200);
+    --core-question-saved-color-bg: var(--gray-500);
 
-    --core-question-state-correct-color: var(--success-tint);
-    --core-question-state-partial-color: var(--warning-tint);
+    --core-send-message-input-background: var(--gray-800);
+    --core-send-message-input-color: var(--white);
+
+    --core-question-state-correct-color: var(--success-shade);
+    --core-question-state-partial-color: var(--warning-shade);
     --core-question-state-partial-text: var(--warning);
-    --core-question-state-incorrect-color: var(--danger-tint);
+    --core-question-state-incorrect-color: var(--danger-shade);
 
-    --core-question-feedback-color: var(--warning-shade);
-    --core-question-feedback-background-color: var(--warning-tint);
+    --core-question-feedback-color: var(--warning-tint);
+    --core-question-feedback-background-color: var(--warning-shade);
 
-    --core-dd-question-selected-shadow: 2px 2px 4px var(--gray-500);
+    --core-dd-question-selected-shadow: 2px 2px 4px var(--gray-200);
     --core-dd-question-radius: 10px;
-    --core-dd-question-border: var(--medium);
+    --core-dd-question-border: var(--gray-200);
 
     --rotate-expandable: rotate(90deg);
     &[dir=rtl] {
@@ -409,5 +416,8 @@ html {
         --core-mainpage-sitename-display: inline;
     }
 
-    --rte-editor-background: var(--core-input-background);
+
+    ion-label, ion-label p {
+        color: var(--white);
+    }
 }

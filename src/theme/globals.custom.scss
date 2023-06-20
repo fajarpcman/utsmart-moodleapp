@@ -3,3 +3,43 @@
  * ----------------------------------------------------------------------------
  * Place here all custom app variables.
  */
+
+
+ // brand color
+ $brand-color: #ffca0d;
+ $gray-900:    #1d2125 !default;
+ $core-color: $brand-color !default;
+
+// Top Toolbar Background && Top Toolbar text color
+ion-header ion-toolbar {
+    --core-header-toolbar-background: #FFD901;
+    --core-header-toolbar-color: $gray-900;
+    --core-header-toolbar-border-width: 3px; /* Use 0 to disable it */
+    --core-header-toolbar-border-color: #FFD901;
+}
+
+
+// Progressbar Color
+core-progress-bar {
+    --core-progressbar-height: 8px;
+    --core-progressbar-color: #ffca0d;
+    --core-progressbar-text-color: white;
+    --core-progressbar-background: white;
+}
+
+// Bottom tabs active color
+ion-tab-bar.mainmenu-tabs {
+    --core-bottom-tabs-color-selected: #FFD901;
+    --core-bottom-tabs-background: #FFD901;
+}
+
+
+// Badge Bottom Tabs
+ion-tab-bar.mainmenu-tabs {
+    --core-bottom-tabs-badge-text-color: #ffca0d;
+    --core-bottom-tabs-badge-color: #1d2125;
+}
+
+ion-label, ion-label p {
+    color: var(--white);
+}

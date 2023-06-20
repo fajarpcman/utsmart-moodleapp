@@ -14,6 +14,7 @@
 
 import { Injectable } from '@angular/core';
 
+import { CoreApp } from '@services/app';
 import { CoreLang, CoreLangLanguage } from '@services/lang';
 import { CoreSites } from '@services/sites';
 import { CoreConstants } from '@/core/constants';
@@ -22,7 +23,6 @@ import { Device, makeSingleton } from '@singletons';
 import { CoreArray } from '@singletons/array';
 import { CoreTextUtils } from '@services/utils/text';
 import { CoreScreen } from '@services/screen';
-import { CorePlatform } from '@services/platform';
 
 declare module '@singletons/events' {
 
@@ -47,6 +47,8 @@ export class CoreMainMenuProvider {
     static readonly NUM_MAIN_HANDLERS = 4;
     static readonly ITEM_MIN_WIDTH = 72; // Min with of every item, based on 5 items on a 360 pixel wide screen.
     static readonly MORE_PAGE_NAME = 'more';
+    static readonly SMART_PAGE_NAME = 'smart';
+    static readonly NAVSMART_PAGE_NAME = 'navsmart';
     static readonly MAIN_MENU_HANDLER_BADGE_UPDATED = 'main_menu_handler_badge_updated';
     static readonly MAIN_MENU_VISIBILITY_UPDATED = 'main_menu_visbility_updated';
 
@@ -114,7 +116,7 @@ export class CoreMainMenuProvider {
             const id = url + '#' + type;
             if (!icon) {
                 // Icon not defined, use default one.
-                icon = type == 'embedded' ? 'fa-expand' : 'fa-link'; // @todo Find a better icon for embedded.
+                icon = type == 'embedded' ? 'fa-expand' : 'fa-link'; // @todo: Find a better icon for embedded.
             }
 
             if (!map[id]) {
@@ -196,9 +198,9 @@ export class CoreMainMenuProvider {
             osversion: Device.version,
         };
 
-        if (CorePlatform.isAndroid()) {
+        if (CoreApp.isAndroid()) {
             replacements.devicetype = 'Android';
-        } else if (CorePlatform.isIOS()) {
+        } else if (CoreApp.isIOS()) {
             replacements.devicetype = 'iPhone or iPad';
         } else {
             replacements.devicetype = 'Other';
@@ -257,7 +259,7 @@ export class CoreMainMenuProvider {
      * @returns Promise resolved with boolean: whether it's the root of a main menu tab.
      */
     async isMainMenuTab(pageName: string): Promise<boolean> {
-        if (pageName == CoreMainMenuProvider.MORE_PAGE_NAME) {
+        if (pageName == CoreMainMenuProvider.MORE_PAGE_NAME || pageName == CoreMainMenuProvider.SMART_PAGE_NAME) {
             return true;
         }
 

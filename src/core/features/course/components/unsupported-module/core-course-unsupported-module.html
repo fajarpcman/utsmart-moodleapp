@@ -1,12 +1,14 @@
 <div class="has-spacer">
-    <ion-card class="core-danger-card">
+    <ion-card class="core-info-card">
         <ion-item>
-            <ion-icon name="fas-triangle-exclamation" slot="start" aria-hidden="true"></ion-icon>
+            <ion-icon name="fas-info" slot="start" aria-hidden="true"></ion-icon>
             <ion-label>
-                <p><strong>{{ 'core.uhoh' | translate }} </strong>
+                <!-- <strong>{{ 'core.uhoh' | translate }} </strong> -->
+                <p>
                     <ng-container *ngIf="isDisabledInSite">{{ 'core.course.activitydisabled' | translate }}</ng-container>
                     <ng-container *ngIf="!isDisabledInSite">
-                        {{ 'core.course.activitynotyetviewableremoteaddon' | translate }}
+                        <!-- {{ 'core.course.activitynotyetviewableremoteaddon' | translate }} -->
+                        Silahkan membuka konten ini dengan cara klik “Open in Browser”
                     </ng-container>
                 </p>
             </ion-label>
@@ -18,7 +20,7 @@
             <p>{{ 'core.course.useactivityonbrowser' | translate }}</p>
             <ion-button expand="block" [href]="module?.url" core-link [showBrowserWarning]="false">
                 {{ 'core.openinbrowser' | translate }}
-                <ion-icon name="fas-up-right-from-square" slot="end" aria-hidden="true"></ion-icon>
+                <ion-icon name="fas-external-link-alt" slot="end" aria-hidden="true"></ion-icon>
             </ion-button>
         </ion-label>
     </ion-item>

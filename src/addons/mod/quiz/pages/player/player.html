@@ -154,11 +154,11 @@
 
         <div collapsible-footer appearOnBottom *ngIf="!quizAborted && showSummary && summaryQuestions.length && loaded" slot="fixed">
             <div class="list-item-limited-width">
-                <ion-button *ngIf="preventSubmitMessages.length" expand="block" class="ion-margin ion-text-wrap" [href]="moduleUrl"
+                <!-- <ion-button *ngIf="preventSubmitMessages.length" expand="block" class="ion-margin ion-text-wrap" [href]="moduleUrl"
                     core-link [showBrowserWarning]="false">
                     {{ 'core.openinbrowser' | translate }}
                     <ion-icon name="fas-up-right-from-square" slot="end" aria-hidden="true"></ion-icon>
-                </ion-button>
+                </ion-button> -->
 
                 <!-- Button to submit the quiz. -->
                 <ion-button *ngIf="!attempt!.finishedOffline && !preventSubmitMessages.length" expand="block"

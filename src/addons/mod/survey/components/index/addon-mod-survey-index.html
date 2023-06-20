@@ -118,10 +118,10 @@
 
     <div collapsible-footer *ngIf="!showLoading" slot="fixed">
         <div class="list-item-limited-width" *ngIf="survey && (survey.surveydone || (!hasOffline && questions && questions.length))">
-            <ion-button class="ion-text-wrap ion-margin" expand="block" [href]="module.url" core-link *ngIf="survey.surveydone">
+            <!-- <ion-button class="ion-text-wrap ion-margin" expand="block" [href]="module.url" core-link *ngIf="survey.surveydone">
                 {{ 'addon.mod_survey.results' | translate }}
                 <ion-icon name="fas-up-right-from-square" slot="end" aria-hidden="true"></ion-icon>
-            </ion-button>
+            </ion-button> -->
 
             <ion-button expand="block" class="ion-text-wrap ion-margin" (click)="submit()" [disabled]="!isValidResponse()"
                 *ngIf="!survey.surveydone && !hasOffline && questions && questions.length">

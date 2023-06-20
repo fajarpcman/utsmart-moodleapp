@@ -17,7 +17,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { CoreApp } from '@services/app';
 import { CoreNetwork } from '@services/network';
-import { CoreSiteBasicInfo, CoreSites, CoreSitesReadingStrategy } from '@services/sites';
+import { CoreSites, CoreSitesReadingStrategy } from '@services/sites';
 import { CoreDomUtils } from '@services/utils/dom';
 import { CoreUtils } from '@services/utils/utils';
 import { CoreLoginHelper } from '@features/login/services/login-helper';
@@ -47,6 +47,9 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
     credForm: FormGroup;
     siteUrl!: string;
     username!: string;
+    userFullName!: string;
+    userAvatar?: string;
+    siteName!: string;
     logoUrl?: string;
     identityProviders?: CoreSiteIdentityProvider[];
     showForgottenPassword = true;
@@ -55,7 +58,6 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
     isOAuth = false;
     isLoggedOut: boolean;
     siteId!: string;
-    siteInfo?: CoreSiteBasicInfo;
     showScanQR = false;
     showLoading = true;
     reconnectAttempts = 0;
@@ -102,30 +104,20 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
                 throw new CoreError('Invalid site');
             }
 
-            this.siteUrl = site.getURL();
-
-            this.siteInfo = {
-                id: this.siteId,
-                siteUrl: this.siteUrl,
-                siteUrlWithoutProtocol: this.siteUrl.replace(/^https?:\/\//, '').toLowerCase(),
-                fullname: site.infos.fullname,
-                firstname: site.infos.firstname,
-                lastname: site.infos.lastname,
-                siteName: await site.getSiteName(),
-                userpictureurl: site.infos.userpictureurl,
-                loggedOut: true, // Not used.
-            };
-
             this.username = site.infos.username;
+            this.userFullName = site.infos.fullname;
+            this.userAvatar = site.infos.userpictureurl;
+            this.siteUrl = site.infos.siteurl;
+            this.siteName = await site.getSiteName();
             this.supportConfig = new CoreUserAuthenticatedSupportConfig(site);
 
             // If login was OAuth we should only reach this page if the OAuth method ID has changed.
             this.isOAuth = site.isOAuth();
 
-            const availableSites = await CoreLoginHelper.getAvailableSites();
+            const sites = await CoreLoginHelper.getAvailableSites();
 
             // Show logo instead of avatar if it's a fixed site.
-            this.showUserAvatar = !availableSites.length;
+            this.showUserAvatar = !!this.userAvatar && !sites.length;
 
             this.checkSiteConfig(site);
 
@@ -138,7 +130,7 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
     }
 
     /**
-     * @inheritdoc
+     * Component destroyed.
      */
     ngOnDestroy(): void {
         this.viewLeft = true;
@@ -199,6 +191,10 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
 
         await CoreSites.checkApplication(this.siteConfig);
 
+        // Check logoURL if user avatar is not set.
+        if (this.userAvatar?.startsWith(this.siteUrl + '/theme/image.php')) {
+            this.showUserAvatar = false;
+        }
         this.logoUrl = CoreLoginHelper.getLogoUrl(this.siteConfig);
     }
 
@@ -252,6 +248,8 @@ export class CoreLoginReconnectPage implements OnInit, OnDestroy {
         try {
             // Start the authentication process.
             const data = await CoreSites.getUserToken(this.siteUrl, this.username, password);
+
+            console.log('data reconnect', data);
 
             await CoreSites.updateSiteToken(this.siteUrl, this.username, data.token, data.privateToken);
 

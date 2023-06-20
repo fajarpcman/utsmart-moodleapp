@@ -30,7 +30,7 @@ body:not(.core-iframe-fullscreen) .collapsible-header-page {
         --core-header-buttons-background: var(--ion-background-color);
         --core-header-buttons-color: var(--text-color);
         ion-toolbar {
-            --background: transparent;
+            --background: #FFD901;
         }
 
         h1 {
@@ -63,7 +63,6 @@ body:not(.core-iframe-fullscreen) .collapsible-header-page {
             }
 
             .collapsible-header-original-title {
-                pointer-events: none;
                 opacity: 0;
             }
 

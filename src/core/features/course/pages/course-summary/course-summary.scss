@@ -27,11 +27,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-            // Fill geopaterns
-            &[src$=".svg"] {
-                min-width: 100%;
-            }
         }
 
         ion-icon.course-icon {
@@ -67,7 +62,7 @@
     }
 
     .core-course-dates {
-        background: var(--light);
+        background: var(--background);
         border-radius: var(--small-radius);
         padding: 8px;
         width: 100%;

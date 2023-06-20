@@ -203,14 +203,6 @@
                 <ion-spinner *ngIf="showStatusSpinner" slot="start" aria-hidden="true"></ion-spinner>
                 {{ buttonText | translate }}
             </ion-button>
-
-            <!-- Button to open in browser if it cannot be attempted in the app. -->
-            <ion-button class="ion-text-wrap ion-margin" *ngIf="!buttonText && ((!hasSupportedQuestions && unsupportedQuestions.length) ||
-                unsupportedRules.length || behaviourSupported === false)" expand="block" [href]="module.url" core-link
-                [showBrowserWarning]="false">
-                {{ 'core.openinbrowser' | translate }}
-                <ion-icon name="fas-up-right-from-square" slot="end" aria-hidden="true"></ion-icon>
-            </ion-button>
         </div>
 
         <core-course-module-navigation [courseId]="courseId" [currentModuleId]="module.id">

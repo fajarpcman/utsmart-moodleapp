@@ -52,6 +52,7 @@ ion-tab-bar {
     ion-tab-button {
         &.tab-selected {
             background: var(--background-selected);
+            transform: translate(1px, 1px);
         }
 
         ion-icon.core-tab-icon {

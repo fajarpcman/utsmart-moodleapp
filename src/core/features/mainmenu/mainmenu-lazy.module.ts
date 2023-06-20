@@ -19,8 +19,8 @@ import { CoreSharedModule } from '@/core/shared.module';
 import { resolveMainMenuRoutes } from './mainmenu-routing.module';
 import { CoreMainMenuPage } from './pages/menu/menu';
 import { CoreMainMenuHomeHandlerService } from './services/handlers/mainmenu';
-import { CoreMainMenuProvider } from './services/mainmenu';
 import { CoreMainMenuComponentsModule } from './components/components.module';
+import { CoreMainMenuProvider } from './services/mainmenu';
 
 /**
  * Build module routes.
@@ -47,6 +47,10 @@ function buildRoutes(injector: Injector): Routes {
                 {
                     path: CoreMainMenuProvider.MORE_PAGE_NAME,
                     loadChildren: () => import('./mainmenu-more-lazy.module').then(m => m.CoreMainMenuMoreLazyModule),
+                },
+                {
+                    path: CoreMainMenuProvider.SMART_PAGE_NAME,
+                    loadChildren: () => import('./pages/smart/smart.module').then(m => m.CoreMainMenuSmartPageModule),
                 },
                 ...mainMenuRoutes.children,
             ],

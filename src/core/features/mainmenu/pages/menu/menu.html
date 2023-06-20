@@ -3,7 +3,7 @@
     <ion-tab-bar slot="bottom" class="mainmenu-tabs" [@menuVisibilityAnimation]="visibility">
         <ion-spinner *ngIf="!loaded" [attr.aria-label]="'core.loading' | translate"></ion-spinner>
 
-        <core-user-menu-button *ngIf="loaded && tabsPlacement == 'side'" [alwaysShow]="true"></core-user-menu-button>
+        <core-user-menu-button *ngIf="loaded && tabsPlacement == 'side'"></core-user-menu-button>
 
         <ion-tab-button *ngFor="let tab of tabs" (keydown)="tabAction.keyDown(tab.page, $event)" (keyup)="tabAction.keyUp(tab.page, $event)"
             [hidden]="!loaded && tab.hide" [tab]="tab.page" [disabled]="tab.hide" layout="label-hide" class="{{tab.class}}"
@@ -16,6 +16,17 @@
                 {{ tab.badgeA11yText | translate: {$a : tab.badge } }}
             </span>
         </ion-tab-button>
+
+
+        <ion-tab-button (keydown)="tabAction.keyDown(smartPageName, $event)" (keyup)="tabAction.keyUp(smartPageName, $event)"
+            [hidden]="!loaded" [tab]="smartPageName" layout="label-hide" [tabindex]="selectedTab == smartPageName ? 0 : -1"
+            [attr.aria-controls]="smartPageName">
+            <ion-icon class="core-tab-icon" name="fas-bus" aria-hidden="true"></ion-icon>
+            <span class="sr-only">{{ 'core.more' | translate }}</span>
+            <ion-icon *ngIf="moreBadge" class="core-tab-badge" name="fas-circle" aria-hidden="true"></ion-icon>
+
+        </ion-tab-button>
+
 
         <ion-tab-button (keydown)="tabAction.keyDown(morePageName, $event)" (keyup)="tabAction.keyUp(morePageName, $event)"
             [hidden]="!loaded" [tab]="morePageName" layout="label-hide" [tabindex]="selectedTab == morePageName ? 0 : -1"

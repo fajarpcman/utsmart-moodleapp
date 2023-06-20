@@ -1,0 +1,54 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [text]="'core.back' | translate"></ion-back-button>
+        </ion-buttons>
+
+        <ion-title>
+            <h1>SMART APPS</h1>
+        </ion-title>
+
+        <ion-buttons slot="end">
+            <core-user-menu-button></core-user-menu-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item class="ion-text-center" *ngIf="(!handlers || !handlers.length) && !handlersLoaded">
+            <ion-label>
+                <ion-spinner [attr.aria-label]="'core.loading' | translate"></ion-spinner>
+            </ion-label>
+        </ion-item>
+        <ng-container>
+            <div>
+                <img src="assets/img/UI_SMARTAPPS.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('utv')">
+                <img src="assets/img/UI_YOUTV.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('utlibro')">
+                <img src="assets/img/UI_UTLIBRO.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('utaurely')">
+                <img src="assets/img/UI_UTAURELY.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('utinspigo')">
+                <img src="assets/img/UI_CORPU.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('utone')">
+                <img src="assets/img/UI_UTONE.png" alt="smartapp">
+            </div>
+
+            <div class="button-div" (click)="openSmartApp('topup')">
+                <img src="assets/img/UI_TOPUP.png" alt="smartapp">
+            </div>
+
+        </ng-container>
+    </ion-list>
+</ion-content>

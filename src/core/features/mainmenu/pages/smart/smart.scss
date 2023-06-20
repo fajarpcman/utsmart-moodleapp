@@ -1,0 +1,23 @@
+ion-item {
+	--border-color: var(--core-more-item-border, var(--ion-border-color));
+
+    > ion-icon[slot] {
+        color: var(--core-more-icon) !important;
+    }
+}
+
+/* iOS places the subtitle above the title */
+ion-card-header.ios {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+
+ion-button{
+    --border-radius: 20px;
+}
+
+.button-div{
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}

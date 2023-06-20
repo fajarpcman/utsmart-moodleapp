@@ -15,47 +15,64 @@
 </ion-header>
 <ion-content>
     <ion-list>
-        <ion-item class="ion-text-center" *ngIf="(!handlers || !handlers.length) && !handlersLoaded">
+        <ion-item button detail="true" (click)="openIab('mission')">
+            <ion-icon name="fas-star" slot="start" aria-hidden="true"></ion-icon>
             <ion-label>
-                <ion-spinner [attr.aria-label]="'core.loading' | translate"></ion-spinner>
+                <p class="item-heading">Mission</p>
             </ion-label>
         </ion-item>
-        <ion-item button *ngFor="let handler of handlers" [ngClass]="['core-moremenu-handler', handler.class || '']"
-            (click)="openHandler(handler)" [attr.aria-label]="handler.title | translate" detail="true">
-            <ion-icon [name]="handler.icon" slot="start" aria-hidden="true"></ion-icon>
+        <ion-item button detail="true" (click)="openIab('resource')">
+            <ion-icon name="fas-store" slot="start" aria-hidden="true"></ion-icon>
             <ion-label>
-                <p class="item-heading">{{ handler.title | translate}}</p>
+                <p class="item-heading">Resources</p>
             </ion-label>
-            <ion-badge slot="end" *ngIf="handler.showBadge" [hidden]="handler.loading || !handler.badge" aria-hidden="true">
-                {{handler.badge}}
-            </ion-badge>
-            <span *ngIf="handler.showBadge && handler.badge && handler.badgeA11yText" class="sr-only">
-                {{ handler.badgeA11yText | translate: {$a : handler.badge } }}
-            </span>
-            <ion-spinner slot="end" *ngIf="handler.showBadge && handler.loading" [attr.aria-label]="'core.loading' | translate">
-            </ion-spinner>
         </ion-item>
-        <ng-container *ngFor="let item of customItems">
-            <ion-item button *ngIf="item.type != 'embedded'" [href]="item.url" [attr.aria-label]="item.label" core-link
-                [capture]="item.type == 'app'" [inApp]="item.type == 'inappbrowser'" class="core-moremenu-customitem" detail="true"
-                [detailIcon]="item.type == 'browser' ? 'open-outline' : 'chevron-forward'">
-                <ion-icon [name]="item.icon" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{item.label}}</p>
-                </ion-label>
-            </ion-item>
-            <ion-item button *ngIf="item.type == 'embedded'" (click)="openItem(item)" [attr.aria-label]="item.label"
-                class="core-moremenu-customitem" detail="true">
-                <ion-icon [name]="item.icon" slot="start" aria-hidden="true"></ion-icon>
-                <ion-label>
-                    <p class="item-heading">{{item.label}}</p>
-                </ion-label>
-            </ion-item>
-        </ng-container>
-        <ion-item button *ngIf="showScanQR" (click)="scanQR()" detail="true">
-            <ion-icon name="fas-qrcode" slot="start" aria-hidden="true"></ion-icon>
+        <ion-item button detail="true" (click)="openIab('community')">
+            <ion-icon name="fas-link" slot="start" aria-hidden="true"></ion-icon>
             <ion-label>
-                <p class="item-heading">{{ 'core.scanqr' | translate }}</p>
+                <p class="item-heading">Community</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('classroom')">
+            <ion-icon name="fas-book" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Classroom</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('learning')">
+            <ion-icon name="fas-user-clock" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Learning Journey</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('event')">
+            <ion-icon name="fas-share" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Event</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('achievement')">
+            <ion-icon name="fas-award" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Achievement</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('learnerdashboard')">
+            <ion-icon name="fas-house" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Learner Dashboard</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('learningactivitymenu')">
+            <ion-icon name="fas-universal-access" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">UTSmart Activity</p>
+            </ion-label>
+        </ion-item>
+        <ion-item button detail="true" (click)="openIab('eksternaldevelopment')">
+            <ion-icon name="fas-pen-clip" slot="start" aria-hidden="true"></ion-icon>
+            <ion-label>
+                <p class="item-heading">Eksternal Development</p>
             </ion-label>
         </ion-item>
     </ion-list>

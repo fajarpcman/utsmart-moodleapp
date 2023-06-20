@@ -27,6 +27,7 @@ import { CoreTextUtils } from '@services/utils/text';
 import { Translate } from '@singletons';
 import { CoreMainMenuDeepLinkManager } from '@features/mainmenu/classes/deep-link-manager';
 import { CoreDom } from '@singletons/dom';
+import { URL_ENDPOINT } from '@/core/utils/url-instance';
 
 /**
  * Page that displays the more page of the app.
@@ -173,6 +174,46 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
             CoreTextUtils.viewText(Translate.instant('core.qrscanner'), text, {
                 displayCopyButton: true,
             });
+        }
+    }
+
+    async openIab(type: string): Promise<void> {
+
+        switch(type)
+        {
+            case 'mission':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/missionsarea/index.php`);
+                break;
+            case 'resource':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/coursecustom/index.php`);
+                break;
+            case 'community':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/community/index.php`);
+                break;
+            case 'classroom':
+                CoreSites.getCurrentSite()?.openInBrowserWithAutoLogin(`${URL_ENDPOINT}local/classroom/`);
+                break;
+            case 'learning':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/learningjourney/index.php`);
+                break;
+            case 'event':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/events/index.php`);
+                break;
+            case 'achievement':
+                CoreSites.getCurrentSite()?.openInBrowserWithAutoLogin(`${URL_ENDPOINT}local/achievement/index.php`);
+                break;
+            case 'learningactivitymenu':
+                CoreSites.getCurrentSite()?.openInBrowserWithAutoLogin(`${URL_ENDPOINT}local/uttrainee/index.php`);
+                break;
+            case 'smartapp':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/landingpage/index.php`);
+                break;
+            case 'learnerdashboard':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/intelliboard/student/index.php`);
+                break;
+            case 'eksternaldevelopment':
+                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/extdevelopment/index.php`);
+                break;
         }
     }
 

@@ -442,7 +442,7 @@ export class CoreLoginHelperProvider {
      * @returns Promise resolved when done.
      */
     async goToAddSite(setRoot = false, showKeyboard = false): Promise<void> {
-        let path = '/login/sites';
+        let path = '/login/credentials';
         let params: Params = { openAddSite: true , showKeyboard };
 
         if (CoreSites.isLoggedIn()) {
@@ -475,7 +475,7 @@ export class CoreLoginHelperProvider {
             return ['/login/credentials', { siteUrl: sites[0].url }];
         }
 
-        return ['/login/site', { showKeyboard }];
+        return ['/login/credentials', { showKeyboard }];
     }
 
     /**

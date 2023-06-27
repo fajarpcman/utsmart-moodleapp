@@ -182,7 +182,7 @@ export class CoreMainMenuMorePage implements OnInit, OnDestroy {
         switch(type)
         {
             case 'mission':
-                CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/missionsarea/index.php`);
+                CoreSites.getCurrentSite()?.openInBrowserWithAutoLogin(`${URL_ENDPOINT}local/missionsarea/index.php`);
                 break;
             case 'resource':
                 CoreSites.getCurrentSite()?.openInAppWithAutoLogin(`${URL_ENDPOINT}local/coursecustom/index.php`);

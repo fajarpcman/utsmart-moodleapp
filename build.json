@@ -1,0 +1,12 @@
+{
+    "android": {
+      "release": {
+        "keystore": "msmilev5.jks",
+        "storePassword": "antihacker12",
+        "alias": "msmilev5",
+        "password": "antihacker12",
+        "keystoreType": "jks",
+        "packageType": "apk"
+      }
+    }
+}

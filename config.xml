@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="43000" id="com.moodle.moodlemobile" ios-CFBundleVersion="4.3.0.0" version="4.3.0" versionCode="43000" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="43000" id="com.unitedtractors.utsmart" ios-CFBundleVersion="4.3.0.0" version="4.3.0" versionCode="43000" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>UTSMART</name>
     <description>United Tractors Personalized Learning Development Ecosystem</description>
     <author email="helpdesk.hcesr@unitedtractors.com" href="https://utsmart.unitedtractors.com">UTSmart Mobile Team</author>
     <content src="index.html" />
-    <access origin="https://utsmart-test.unitedtractors.com/" />
+    <access origin="https://utsmart.unitedtractors.com/" />
     <access launch-external="yes" origin="tel:*" />
     <access launch-external="yes" origin="mailto:*" />
     <access launch-external="yes" origin="geo:*" />
@@ -54,7 +54,7 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <platform name="android">
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/utsmartlogo-splash.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/utsmart-logo-new-splash.png" />
         <preference name="AndroidWindowSplashScreenBackground" value="#343A40" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#343A40" />
         <resource-file src="MainActivity.java" target="app/src/main/java/com/moodle/moodlemobile/MainActivity.java" />

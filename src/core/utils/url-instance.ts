@@ -11,6 +11,19 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
-const URL_ENDPOINT = 'https://utsmart-test.unitedtractors.com/';
+
+interface IEnv {
+  dev: string;
+  prod: string;
+}
+
+const ENV: IEnv = {
+  dev: "https://utsmart-test.unitedtractors.com/",
+  prod: "https://utsmart.unitedtractors.com/",
+};
+
+const isEnv: string = "prod";
+
+const URL_ENDPOINT: string = isEnv === "dev" ? ENV.dev : ENV.prod;
 
 export { URL_ENDPOINT };

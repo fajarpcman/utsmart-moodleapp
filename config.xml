@@ -54,7 +54,7 @@
         <param name="ios-package" onload="true" value="CDVStatusBar" />
     </feature>
     <platform name="android">
-        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/utsmart-logo-new-splash.png" />
+        <preference name="AndroidWindowSplashScreenAnimatedIcon" value="resources/android/utsmart-splash-fix.png" />
         <preference name="AndroidWindowSplashScreenBackground" value="#343A40" />
         <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#343A40" />
         <resource-file src="MainActivity.java" target="app/src/main/java/com/moodle/moodlemobile/MainActivity.java" />

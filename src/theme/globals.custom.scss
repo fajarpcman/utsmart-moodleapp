@@ -12,10 +12,10 @@
 
 // Top Toolbar Background && Top Toolbar text color
 ion-header ion-toolbar {
-    --core-header-toolbar-background: #FFD901;
+    --core-header-toolbar-background: #FFCA0E;
     --core-header-toolbar-color: $gray-900;
     --core-header-toolbar-border-width: 3px; /* Use 0 to disable it */
-    --core-header-toolbar-border-color: #FFD901;
+    --core-header-toolbar-border-color: #FFCA0E;
 }
 
 
@@ -29,8 +29,8 @@ core-progress-bar {
 
 // Bottom tabs active color
 ion-tab-bar.mainmenu-tabs {
-    --core-bottom-tabs-color-selected: #FFD901;
-    --core-bottom-tabs-background: #FFD901;
+    --core-bottom-tabs-color-selected: #FFCA0E;
+    --core-bottom-tabs-background: #FFCA0E;
 }
 
 

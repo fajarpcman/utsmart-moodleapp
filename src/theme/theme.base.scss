@@ -166,7 +166,8 @@ ion-header {
         .button.button-clear,
         .button.button-solid {
             --color: var(--core-header-buttons-color);
-            --background: #FFD901;
+            // --background: #FFD901;
+            --background: #FFCA0E;
             --ion-toolbar-color: white;
             --border-radius: var(--huge-radius);
             --primary: var(--core-header-buttons-color);
